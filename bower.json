@@ -1,0 +1,29 @@
+{
+  "name": "angular-training",
+  "description": "Formation angular JS",
+  "main": "index.html",
+  "authors": [
+    "Gregory ANNE (@gregonmac)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angularJs",
+    "training"
+  ],
+  "homepage": "https://github.com/gregonmac/angular-training",
+  "moduleType": [],
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.0"
+  },
+  "devDependencies": {
+    "qunit": "~1.16.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

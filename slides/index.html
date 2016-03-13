@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Formation Angular JS</title>
+  <link rel="icon"
+        href="https://angularjs.org/favicon.ico"
+        type="image/x-icon">
+  <meta name="description"
+        content="Formation a Angular JS by Gregonmac">
+  <meta name="author"
+        content="Gregory ANNE">
+
+  <meta name="apple-mobile-web-app-capable"
+        content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet"
+        href="css/reveal.css">
+  <link rel="stylesheet"
+        href="css/theme/black.css"
+        id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet"
+        href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <!-- Title-->
+    <section>
+      <img
+              data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbQAAAB0CAMAAADadTd0AAABI1BMVEX///8AAACmEg3dGxazs7Py8vKlAACurq7Z2dnR0dH19fWenp6ztLSgAADh4eHcAAC2FxI6OjrJycm0urrU1NTw3dzExMR7e3u4fHuLi4vz+fno6Oi+vr6mDgiwurrt7e1cXFynJSLfNDFwcHCPj4+CgoJkZGRHR0ckJCTliIeXl5e8jIujo6PToaBPT08uLi4YGBisammufXwSEhKrYV8tLS2qT02xoaHjcG6vjYyoPjzdHhmxoqLNZGOoNDHnkpHrtrXBcG7Eq6u8YV/CiYjbJyPWQT6nHxviX13AnJvRVlTGfXyvionKbm3qraypSkjUSUfooJ/s1dXkfHqoMC23AAC3LivjwL/EgoHVREHSqqrPX13TUE6tcXDRlpXAbWvWubmAThaSAAAWa0lEQVR4nO2dC3fTxraArWA9rcixrNgksrGDEzskJm+gUJpCCqQptNAQTug5hd7//yuu5v2WlJ4Y56Taa7WL2LI9mk97z36NVKtVUkklN1aCeQ+gkiuK7dfdMLHnPYxKSkvgha5br9ddt+dV+va/IIHXg8SQVNz+ByTiiVFu0byHVYlR0g5HLAxDjlun4nYTJY15Yu17Zwduu+J2k2WQOYucjt17/vJ+85Pz/qAucovTeQ+0Eix2EnLrWHjP/fym2bxzZ2nBcZz37ypuN09EZzG81371JyCWyaeFTDJuj9+FArd6PJj3oP/ZIjiLYbt99h9M7M6d5ktnYYFwe5px4/zJul9xm5NEHcn1+OF7iuxO87sYQ6u43RiRnUXgelBiANp5fMSoQW5HT9ttfnmr0lzfVGRn0X37RiCWMfuwGrs8NMitf/QkFLlV6ZJvI7KzGL76IBED0C5XO+0jidpC33EWjp6I+laluWYuJBdMXY/tX1RimdxfDTrhcxka5rYvc4sqbrMTyVkUXQ9B0X7LoNXb7zXUILe1jFsocpv3ud1OkZ3FJ7++1hMD0FbtIK6HT7TQMLcvz0V9q9Jc1y2iswhcj/tGYhmzHyG0evuZiRrkdqFwq8KAa5So2PUQoA1sCC18aoaGuB0f8Nxcb94neptkQKCZXQ+e2cdVBK3evujnUZO5uZWFvEYJXOp63ClClkFbDjC08F2uqkHJwu5noIwDoFXm8ToFQAvzXA+e2c+ZoiFo9fZagapRbk8yam7l+l+nAD1o/1CCGIB2GTBoB8Wqhri9A9DmfZq3S3oAwNty0N4ARcPQ6u2FMqqWQQOaVp/3ad4ugQvUdilozRcBBy38Uk7VHDeD1pv3ad4uSbJFLTwrBe01VDQKrV4OWr+dHRzP+zRvl4BALXTLQGv+LkCrt/fLUOtfZNDcZN6nebsEBmphKWi2LUAL5QqN3jo+bldh2nULDNTu3S/B7MGqCK2uVmh00I7atylMS/15jwAKhPZHCWjLgQRNW6FRoB20b1OYtjKc9wigwEDtP8XJkO9WJfOYfexxibTI09sUpiWWdSOMBgzUfi2Gdh4QaD7NMBsrNBy02xSmBRuWtTLvQQCBgdrnImjND0TR7NXPbapq+mKoAK1+i8K0aM+yrHkPAggM1Aqja5TBgop2+ckNS6tavx+KYZodBEFur1bBAUGaxJ1MYk+xU0HBR+W3AyB5Q1GkkTGzpuax6ST/G82HBIPzSyDn58vqATBQe1IE7T5TtO8+7TNVOy6g1j8Ww7TUgmI+FQ++rw8RvMb40OJkb9zgo/Yt+KKxcteBb7vS31ex3GkLfOLQ+H7L0snuyOw8f10Esiy/vPzwr9NFTpy1n75e8kelZaLr5m/UDUmbS9DkIVXLL4YqYdogRieyYzqLQc8ELdrQTom1Q45NN3Khpa4IDf8dmkaikTr6xY7+3SDVQwMy1F+F0SswfTK0y+MMk5DY7S86TvbaT9RO2NDnL9K0gCrajxk0TtUKiqHwUJfuzYhCfBbrhnmJXD20aGicEKJsfjcXmtcQoeG/rwDNHuZecYFvhmZZW7qP+HdVaOeniwZF6HMHloiuQWsI0TS4a4apWkExFIVp9AqJevJUS2KAtpIzHSTcnTm0mPyiXm3yoWm9Tg20h4tspwQTpBkytD/zoQ0osxdNAO0LU7XTXFWTwjQGzdJ7DFpoATcbm8Pu+tZ0Ot1a7w4ffVNoQZeMYaR/H0MbDznZ2aUj11ymKrSHi4TYs/3ts7OTk7Oz7btHzxYgOO7AXmEZFLaGYOv4BmjagkN7GwuKoTBM00Jrac9cBy3YI5+ZbHX8xAOS+EBit/vom5lH6CLtmS84As3zeUnixiYa/K76EQXaOWZ2fBYLJ+r3zvbXHO7ADpj6l7nQlqm/f95E0A6ofQz7eaomVdM4aNaG7sx10PBJWzu9aMC5ncEgSmLfi8iCOWto6+Dw9Qn4v3aBItCE1+wo9v2JZRiZDG11DWrA4nYkXBZ26vnZ13S+MmggwRG+yoGGWkOQon1E0PoLtDuunVsMdYAdZe4WD03rhWmgERdEm8BM2UzMGFoKrx1/SwFDRAcN/lCMF8OG8hEZ2gli9n+6b08T/sy8ojIoC6ztAThsiTgYxcVQWE2rs8w4hoYvPU34okJDL1iHhdWdGUObgqO7iQ8/pYvuTNBqiT+Gb6hLoQQthRVK53OJ0cBA7XkOtDdM0X4n0PqnzBXJKYaiMI3NI4bmTkxWXoGGo/GccJzOwEyhDeCQo8gfGUZuhhZg9ZyoQxahJTB+WiyzuQ+UQcN6Tiv4Cxakvb6DoaEmq8JiqBSmEWhTbDC6ymAUaFum9UCdgZlCgwNv1YIYnYGmrGaEVvOhlmpcLxFa4ENFuygzHFgGbb82QnvNYrTLJoXWX2OqZi6GojCNmUECLcFGT8kky9BS5DJrnRZ5BmYJzR7jg5MEqtxQPcQMDf9UkaYNOhDay1IDAhN/741R0X5n1vFnBg1FYEXFUBSmMdOGoWWeMA565PtYyNDCssZxxtB8wmMQT7UDz4W2YrArIrQUQXtbakCwDPqLcXOTTRVtGR2DoR0zVTMWQ+VqGoEWxOiCtTalsUjQBqbT1cgsoQUwrwmTGnFyqNf9HGgT8afZkEVo8A4Ezl+lRtTJK4PS1pBM0R7w0HhVM1ZoYL6LmxcCrRYRP1hyqSRo3o5pBVFlltAipl2Rv6FXfjM0o7mQoME1rb9WakQgUDM2GbPA2rbxIQTaM6Zqhu1qKJzj4jEKLfOD8bImXn8SNP/QMA+605ghNOgO4URxjGo6SlnNCM3eNZkLGdqxLulvOJ2cMihrDbFXfxOhYduXV6GB1TQuTOOgZWYG11qEAEyEFqD5UVdwncwQGiq64IvPS4ZaOEZoOyZFk6DZ/n55+xjlRNesNcReJZUACu19UTFUDtN4aDZZ1vbEsfDQBqiCVcZ3nCk0l6dhx+hP2fM1QCNVNp2Jl+K0GGdEHpYY0sBcBuVaQ7C/z0HjVU1foUFhGqdKHDS2rI25sYjQoqneEmlldtAGUFdowtFPYEZLDru00AakdKutnErQfP8CUfup2EIG5jIol8HK/H0sn2iZ531BhUYO0wRobFnjoEjQtq6w7swOGjLSNFGR+iu6X1KhDerYMlqWvi9eTmNhVVtwFk9ffn2I5d+XWoTmMigLrG374wMsb/f3j7C4+RUaOUwTobFljctzCdC8da0h0svMoAUjyR5gEzGWDhOhTUekOpGF4oYmETlhHKMXFuDuZ75J5NlDJbcFo+sPOkX7jYO2SiQO20TYHQxC3XY1qZomQ6PRGrs6RWjJutm0qDMwK2gJP2b4UZwBFlFI0Cgxa2K86GRo2Tp/19Fe/YuLbyVHBpZBtU3GzN1nEnTqGtGqGmpL4H5JhJbZA7nRRwttzpoGjSHvLgUxirzEDgIBWkp7E4Z1cwJYKYKmsX9y7DjapcYRrWRsiK651pBCaNoKDaym8VMuQWPLGlnlJWhbNwBaBM2c4Az5icbn0ELb8fJy9mq7gR1n2PbXHF2HiBjAwX5VTZMxaw0phqar0KAwje+NkKGxZQ2/JEHL9x7rh5ubmzPvEUHHCcZp4EtfBkSE5uMeidzyhK4bK4VF6pOzbSJfHmNszil/nCFQ41pDSkDTVGhQmMY7Tgq0bFkTYk/JEalrzBAVuyF82YygoUIayrZ1YiwNdDUJmVNJ03CTZG42RwcNFKkj0hoC+mCy/85O1QAu1TcZ8xmsYmiaCo0SpqnQwLKGUlUo7SFBQ8625KbRU175FtBC9q0dSxbeioiOiE9MiGHw6CAtNElgmwnME/Yd/ue00TXXGlIKmlqhQWEaX8RQoWWuGL4mYf+qFKehioiQM2GSfAtoqJD2CPwzVRtm+b5VEVpmQnAqJGefVyloNdhmAi3k4jn3IgzUvpehXWoVzQhNrdCgMI1fiTXQsmVthV22IrQUNzLpwxw9NNP2bg85NdSXLQktZhNPHUJOODMiufxRTBTTfO/7stAyhw0dydtHMOVKdM1aQ1iIhuK0tiChUdWc5/KGQh00tqzZMjQbg9BfrDK0FcVi8YIrkTTmKwcNd6jCf65roHGpezkj4uPWEKSmWikNDaclhQIpCNTkJuPmC66f5/V9Tv61xsvpF+N2Ndj0KDQu6aCxZa2llGZwblaf5pehIQomV9ODeQ1mPctBQ5t4YMY6crcanExRwoN5lTK07GIcKmRFKQ/NQwXSn7iXYKAmNRl/zyna98JbS31eHIepmlgM7S/IYZoeGlvWNpR6mq9YISYStAR9ib5nO3u7JU5yOWjr7OcT1PKLJcGOButbVXKP9GI0pnTKQ4tUaL6rlEG51hDQvy9Ak4zgO9a4KhRDUZgmDFgPrRZj02Z1UhEa7ljTu2ASNA+vOYbTRu8yn6YUNNRXpFV0smTRF9SEsUdSB6Yel/LQUhUaLIOKTcasNYT085igoYZUpGpCMRSGaXUBkAEaW9ZweBPRN3BLsm6lkqBFeNL0vQn2uqSHpaDpK2fo89j40S/QlGbiBF1zpjKuD123xRJtS4OesqalSnTNtYaQfh4TNK6sJm5XQ2Ga4IIboAFLgjIIuyK0zCbhdUGTDZKgDXDzxlB71igZxc1/GWiokKbXXVILpX2rGmh27ONdM9ru/5oPsuxC9GWSdFvxHm2lyZgLrFd/LIL2mKkaXwxVwzQjtMyS4O6XlgjNJlZIbtuqKdCowdKuIBuy7SwDDY3WsAHST8StVroiaEQshTYSCZBL+D5vCOSLUPsIH6fV5Hstca0hmRtyJx8acu2xqnHFUDVMM0PLXA5+4yBzPBIfe9pqM78MjRgsXWCE546b/xLQ7JHp64CkeGRD/Le2cu2T4evUNb1Q1Mck20pGBAVqfJMx3xryQk6VqNC47bxchUappuVBYw6yCC17fWzpTYwMzaaXtfL9PXXmSkBLBCiKkLoShqqFxlZrzdegZAS/pJ0bfJJ/w31ri+LWDBiosSZjrjVEcUM00Lg9hvx2NVhNKwsNlJLo5kHexU/paWfYhNQIrmuzL2PaOhKNMrkceMOJoeWUfVCHqrkEG+FaKO470jf20JKhkiG4xA0hPImvixdfzxW/ZPkvyKzviO/AflXWZMxlsBQ3RAvtgKka3a6Gmh7FScmBxpY1EVq2Lvhj+kZrJfQgkNTrjWRvkdfWSQM+OjGIOlt086+wOGFoK/CuJIqAJSja00DghNRCSbZR342V4O0X/EldXj58u4A2Vwv1Fv+zA9oMLl5+vTxfhutKsHz59Rnehr14KX4z7FdlZdD7nKLJbogOGu/102IoamYVr9M8aJz9l3ohY1wM1YtQMkjG5gNF84qhGQQEhuhH1a2AbMA4YEdJGFPfI/X7mS91Su854Ti88cAtImJ/CEbWV9Y+T4iu+daQVRmZDhrXIs6KoZowLR8apyii05FZzo75lhT8l2V8dRlCKNLqlQ9tRBsWcyrPA5xdRLeDMUEbxD5u8cHpLDshd1rvO8fC19O+Hs0My3qGy6C0ybjJ0vtyNsQEjTXT0WKoJkzLh8Yta5KnGCRx0hvpp1f0KgFfrbKNZB+wEBqKGPPKYbUYZ9mgOTF2GDO7j9YK21+D4ZnjLGyLR/rbrLuAN2TZi/uqDzvgy6B8a4jqhmihCV4/LoaiME2cfnzzF9OGCnp6intvJ7HvT0e7liiTruz9ZXz9eH1HPGxnXa2yFZnHQYm9HyTLBvP4AQ6k1cN8n7Sswpm3/VPA5nj/RD7NbOgn20cXjiQLj7e1YR4fXXOtIRo3xACNef2kQoPCNLEUFnUa0+k0Npoc33ez991Yk9gJIlB5j+uNle5oPB6PuiuNMPY0MVTggQp92NgAx426G43Q1z3GzeuBoeil0fFqPnw7/47ZQQzOp9GJ0R/gk6HmE0Hsw2/txfDaseOTk5NenGh0J0picJK9k7Ptu3dBd+n+3e3sUMNj6Lgm4+YDrnamuiF6aJnX327jfsh7KP5A1TTx51KQKc/Z8h7ATLrxgAFrnki8KDWyt1N2nOmwSEjai5IA1Qb/KHp2N/qSATd2bb02xb9FTzJKjfc4CwZCi4hx/DVcBkXRdfO7Bx8/fpfJzz9/+CBnQ8zQHu/vf/lyAOQd8vo1YVol1yowusZNxk0mGmQGaMK9nNDqCQ3mvE/sNoupX7U8NIXhF6UEWsn1SgIXtbM3ZbCVgOY4Ry5UtOrRFzMU9MTC8N6r18XYCqH1nffPUb9P9eiLWQp5YmHYflv4JLUCaH3n4ilp0XKL3K9/kKRxr3Olp2wGW9ah8W6m6Ct7GFu7/kMBtnxozuk7iuxmPC7iJgjYETqZ7FlWq1H6XtdB2i28R0BUR9jCe8//zKWWBy3zP0IcZrudW/Pci/9atqwdFFeDzGhOClqSlRI3dvBcgi3XIzFDo/5Hhqx3Ix4VcTNkzCoM0V65u6JAKQMN9dIhbNtmj8QEzXEePydP261Xz3FissG3q7auMDPloNWCTrFHoofWd46fEGTVY6158f72UzNKQgMddsQjCX/VY9OnsSr/wyRjbV94tD7cWaEzVR/tjGieNog7vUxCCi3u7owK0hRpSD0S7W3OdPU054C0ifyj/Y+eLsTRNqKMLdcLD/FeqY418kGVBx4XjPZAwWdnFGFowaTV67XMD6DAwhxJnUeidmM5+/XK/wCiu09uoivKtVB/+h68hUwPfawBq6kB7IKewDcQtE2Ia7f4eVIJ80juF3Rj8f5H+A/3P3QdeXVNU/s6Vr4YBAAB6VJuAUYjWCkdwM4TCK2BGl2HJW4RFsTUI/l8J6eXv+88q/wPKlbP39ga1AKYCfKQ2rka80hr83vWZkYF7zCogyNxV8rQGmJoj6ygloXZ3VL6YHcMHskSj2ztaeV/MLFa1kYrAwJNWQv1l/jqHdk8Cm0jwzIk0AbgngBYL9dBdwqElpHc2StflySOpOSRLHGW8aBd+R+cwJVoMqltZZNt46XM5vtGXNDE0EuoxXQhNGL4AF7ctLUFmlsxtCsWJZlH8uSPpgyt8j8UgfPbs2qp5WU88IsT2r6XDscbh5YVpLQJM8ywjLlbM01BtyVYZXapI3Jo3CdpFJbaoh7JEvE/XOp/VMl8JFCB/Gymd1dqLeLtgc08zAztgDbJPdK56mZWsE5bz2G7VjfTt+mjIfgbQuuaHiOVJyy1hT2Spcr/MAlUqUzTalOrxqZ6yN8ccgJ2o9aJczIER5G3PaRTaW8D6x6EFlnWXpnnK4hCHUnskSxV/odJrGH2v50xWMi63I66XcvaJAghtMyxh0bQhZQjtEM12CNoQ2xQUZwGGjSng8Bbv5rXYBOPpO3+0mwuOf3K/9CLtTd0xzDQGgq3WQBNz2PQ7hmAvfPglcwDGXZ3N1FlP93J3I8xi54zNxL+gVucUa9z68puA0ttPfnjEyuZVf6HKI1BY6cLF/ieuDneI03tky0fv+H1uKTXoNMjFsudWJvDQ/FGFnGv97fSFtSRbFf+RwnpKpsA7CgqMV8pXu2GJZ9GUCQ0tVX5H0USb/0Njw/KHtlYOr6uZ9cTR7LyPwqkN/ybDZ8+vdNJmt/TcwUhNVLtFolK/nvpsBuiXY95hAJSW27v6nFDJeWE3o5wkrsz7qoSaSt9lVyPgDsqjKbTjZKP/ajkZog7mkzGjSqWqqSSucr/AxUzPZYcMVH3AAAAAElFTkSuQmCC"
+              alt="AngularJS By Google">
+
+      <h3>Superheroic JavaScript MVW Framework</h3>
+      <p>
+        <small>Presenté & expliqué par
+          <a href="https://www.yammer.com/digitaleo.com/users/1553799255">Gregory ANNE</a>
+               /
+          <a href="http://twitter.com/gregonmac">@gregonmac</a>
+        </small>
+      </p>
+
+    </section>
+
+    <!-- Summary -->
+    <section>
+      <h2>Sommaire</h2>
+      <small>
+        <ol>
+          <li>Historique</li>
+          <li>L'environnement de travail</li>
+          <li>Les concepts
+            <ul>
+              <li>Le pattern MVC</li>
+              <li>La notion de data-binding</li>
+              <li>L'injection de dépendances</li>
+              <li>Les directives</li>
+              <li>Les services</li>
+              <li>Les filtres</li>
+              <li>$scope et $watch</li>
+            </ul>
+          </li>
+          <li>Le tutorial
+            <ul>
+              <li>Le sujet</li>
+              <li>Etape 1</li>
+            </ul>
+          </li>
+          <li>Les tests
+            <ul>
+              <li>Unitaire</li>
+              <li>E2E</li>
+            </ul>
+          </li>
+        </ol>
+      </small>
+    </section>
+
+    <!-- History -->
+    <section>
+      <h2>Historique</h2>
+      <p class="fragment">AngularJS est un framework Javascript SPA (Single Page Application) opensource depuis existant
+                          depuis 2009</p>
+      <small>
+        <p class="fragment">Développé par initialement par Miško Hevery et Adam Abronsw puis reprit par Google.</p>
+        <p class="fragment">Actuellement en version 1.5, la version 1.0.0 n'est arrivée qu'en juin 2012</p>
+        <p class="fragment">Il propose d'étendre le HTML en y ajoutant des nouvelles fonctionnalités et ou balises.
+        </p>
+        <p class="fragment">Il suit le pattern MVC</p>
+        <p class="fragment">Il offre le binding bidirectionnel</p>
+        <p class="fragment">Il utilise l'injection de dépendance</p>
+        <p class="fragment">Il utilise JQlite en remplacement de JQuery mais peut aussi utiliser JQuery si il est
+                            chargé</p>
+
+        <p class="fragment">Il a déjà son successeur avec AngularIO ou Angular 2.0</p>
+      </small>
+    </section>
+
+    <!-- Concepts -->
+    <section>
+      <section>
+        <h2>Les concepts</h2>
+        <ul>
+          <li>
+            <a href="#/3/1">Le pattern MVC</a>
+          </li>
+          <li>
+            <a href="#/3/3">La notion de data-binding</a>
+          </li>
+          <li>
+            <a href="#/3/4">L'injection de dépendances</a>
+          </li>
+          <li>
+            <a href="#/3/5">Les directives</a>
+          </li>
+          <li>
+            <a href="#/3/6">Les services</a>
+          </li>
+          <li>
+            <a href="#/3/7">Les filtres</a>
+          </li>
+          <li>
+            <a href="#/3/8">$scope et $watch</a>
+          </li>
+        </ul>
+        <img width="300"
+             data-src="http://i.giphy.com/l0NwxVQVJNqNQByDe.gif">
+      </section>
+      <!-- MVC -->
+      <section>
+        <h2>Le pattern MVC 1/2</h2>
+
+        <p>
+          <small>L'idée est de bien séparer les données, la présentation et les traitements</small>
+        </p>
+        <small>
+          <table>
+            <tbody>
+            <tr>
+              <td>M</td>
+              <td>Le modèle</td>
+              <td>Le coeur de l'application, contient l'intelligence métier et/ou les données. Dans notre cas les
+                  services.
+              </td>
+            </tr>
+            <tr>
+              <td>V</td>
+              <td>La Vue</td>
+              <td>C'est la partie visible et avec laquelle va interagir l'utilisateur final. Dans notre cas le HTML et
+                  le CSS. La vue n'éffectue pas de traitement directement et passe par le controlleur.
+              </td>
+            </tr>
+            <tr>
+              <td>C</td>
+              <td>Le Controlleur</td>
+              <td>Il s'occupe de gérer la communication entre la vue et le modèle. Il ne doit pas faire de traitement
+                  en s'appuyant sur le modèle. Si une interaction necessite un changement de donnée demande ce
+                  changement au modèle
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </small>
+
+        <img style="background-color: white"
+             width="300"
+             data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/MVC_Diagram_(Model-View-Controller).svg/609px-MVC_Diagram_(Model-View-Controller).svg.png"
+             alt="Pattern MVC">
+      </section>
+      <section>
+        <h2>Le pattern MVC 2/2</h2>
+        <h4>Avantage</h4>
+        <p>
+          <small>Il permet d'apporter de la clarté dans l'architecture et simplifie le travail des developpeurs. La vue
+                 peut etre concu ou évoluer indépendament du modèle et vice et versa.
+          </small>
+        </p>
+        <h4>Exemple</h4>
+        <small>
+          <ul>
+            <li>
+              un utilisateur interagit avec l'application, l'action est analysée puis transmise au contrôleur (saisie
+              dans un champs texte)
+            </li>
+            <li>
+              le contrôleur demande au modèle demande le traitement et notifie à la vue que l'action
+              est traitée (par exemple convertie en kebab-case)
+            </li>
+            <li>
+              la vue notifiée fait une requête au modèle pour se mettre à jour (par exemple affiche la valeur saisie en
+              kebab-case dans une zone de texte).
+            </li>
+          </ul>
+        </small>
+        <h4>Dans angular</h4>
+        <small>
+          AngularJS simplifie l'implémentation du pattern MVC par l'implementation de Two-Way data-binding.
+        </small>
+
+      </section>
+      <!--La notion de data-binding-->
+      <section>
+        <h2>La notion de data-binding</h2>
+        <p>Ce concepte permet de lier la vue au modèle. L'implementation dans AngularJS est
+           bi-direcetionnel donc on parle de Two-Way data-binding.</p>
+        <p>Donc dans ce cas un changement dans la vue peut impacter la donnée dans le modèle et la mise à jour coté
+           modèle sera automatiquement impacté dans la vue</p>
+      </section>
+      <!--L'injection de dépendances-->
+      <section>
+        <h2>L'injection de dépendances</h2>
+        <p>L'injection de dépendances permet à une fonctionnalité de ne pas se soucier de l'instanciation des
+           dépendances dont elle a besoins.</p>
+        <p>Avantage:
+        <ul>
+          <li>Homogeneisation des dependances pour pouvoir etre injectable</li>
+          <li>Possibilité de changer d'implémentation, pour les tests par exemple</li>
+        </ul>
+        </p>
+      </section>
+      <!--Les directives-->
+      <section>
+        <h2>Les directives</h2>
+        <p>Angular permet d'ajouter des fonctionnalités au langage HTML via de nouvelles balises, des attributs, des
+           classes ou même des commentaires dans votre code HTML. Elles on pour but d'ajouter du comportement ou de
+           permettre la modification du DOM</p>
+        <p>Angular lui même utilise des directives pour son framework</p>
+        <pre>Definition d'une application :<code class="hljs"
+                                                 data-trim
+                                                 contenteditable>
+          <div ng-app="MY-APP"></div>
+        </code></pre>
+        <pre>Difinition du controlleur associé :<code class="hljs"
+                                                      data-trim
+                                                      contenteditable>
+          <div ng-controller="CTRL">...</div>
+        </code></pre>
+        <pre>Definition d'une zone à dupliquer en fonction de donnée :<code class="hljs"
+                                                                            data-trim
+                                                                            contenteditable>
+          <div ng-repeat="data in datas">...</div>
+        </code></pre>
+      </section>
+      <!--Les services-->
+      <section>
+        <h2>Les services</h2>
+        <p>Les services sont des briques fonctionnelles directement utilisable dans l'application via le systeme
+           d'injection de dépendance d'Angular.</p>
+        <p>Important : Se sont des singletons.</p>
+        <p>De multiple services sont a disposition dans Angular tel que :
+        <ul>
+          <li>$http : pour interagir avec la couche reseau fair des requetes</li>
+          <li>$cookies : pour interagir avec les cookies</li>
+          <li>$location: pour interagir avec la barre d'adresse du navigateur</li>
+        </ul>
+        </p>
+      </section>
+      <!--Les filtres-->
+      <section>
+        <h2>Les filtres</h2>
+        <p>Les filtres sont des outils qui permettent de modifier des données.</p>
+        <small>Par exemple :
+          <br>
+          <ul>
+            <li>pour formater un chiffre</li>
+            <li>
+              une date,
+            </li>
+            <li>pour remplacer une chaine trop longue par une version diminuée</li>
+          </ul>
+        </small>
+        <pre>Syntaxe :<code class="hljs"
+                            data-trim>
+          {{expression | filtre : paramètre 1 : paramètre 2 : ...}}
+        </code></pre>
+      </section>
+      <!--$scope et $watch-->
+      <section>
+        <h2>$scope et $watch</h2>
+        <small>
+          <h3>le $scope</h3>
+          <p>Le $scope est une dépendance accessible dans la vue et dans le controlleur</p>
+          <p>Toutes les données ou fonctionnalités doivent être rattaché au $scope pour pouvoir être éxposé à la vue</p>
+          <p>Une application AngularJS possède un ou plusieurs $scope et un seul $rootScope qui permet d'accéder à
+             l'ensemble des contextes présents dans votre page.</p>
+        </small>
+        <small>
+          <h3>le $watch</h3>
+          <p>Le $watch permet de definir des actions sur l'observation de la modification d'une donnée ou du résultat
+             d'une
+             fonction</p>
+          <p>Le $watch est un outil important, puissant mais à utiliser avec partiemonie car il peut être tres
+             consommateur en ressource</p>
+        </small>
+      </section>
+    </section>
+
+    <!-- Tutorial -->
+    <section>
+      <h2>Tutorial</h2>
+      <p>
+        Passont maintenant à la pratrique
+        <br>
+        <img data-src="http://i.giphy.com/3obW8mIqKsx7a.gif">
+      </p>
+    </section>
+    <!-- LE sujet -->
+    <section>
+      <h2>Le sujet</h2>
+      <p>Nous allons créer un outils de saisie de temps.</p>
+      <img width="300"
+           data-src="http://i.giphy.com/fQZX2aoRC1Tqw.gif">
+      <ul class="fragment">
+        <li class="fragment">Interface de saisie des temps et des projets</li>
+        <li class="fragment">Interface de consulation individuelle ou du manager</li>
+        <li class="fragment">Navigation</li>
+        <li class="fragment">Authentifaction</li>
+      </ul>
+    </section>
+    <section>
+      <section>
+        <h2>Premier pas dans AngularJS</h2>
+        <p>Nous allons créer une premier application pour s'initier aux concepts de base d'AngularJS</p>
+
+        <img width="300"
+             data-src="http://i.giphy.com/k8ZtT9SAh7JRu.gif">
+      </section>
+      <section>
+        <h2>Mise en place du projet</h2>
+        <pre>Installation de node & npm. Suivre les instructions sur :
+          <code class="hljs">https://nodejs.org/en/download/</code></pre>
+        <pre>Récuperation du projet GIT.
+          <code class="hljs">mkdir angular-training
+cd angular-training
+git clone https://github.com/gregonmac/angular-training.git</code></pre>
+        <pre>Installation des outils (grunt, karma, express ...).
+          <code class="hljs">npm install</code></pre>
+        <pre>Récupération des dépendances utilisé dans le TP (AngularJS,
+          <code class="hljs">npm install</code></pre>
+
+      </section>
+    </section>
+
+    <section>
+      <h2></h2>
+      <p>
+        Press
+        <strong>ESC</strong>
+        to enter the slide overview.
+      </p>
+      <p>
+        Hold down alt and click on any element to zoom in on it using
+        <a href="http://lab.hakim.se/zoom-js">zoom.js</a>
+        . Alt + click anywhere to zoom back out.
+      </p>
+    </section>
+
+    <section>
+      <h2>Touch Optimized</h2>
+      <p>
+        Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+      </p>
+    </section>
+
+    <section data-markdown>
+      <script type="text/template">
+        ## Markdown support
+
+        Write content using inline or external Markdown.
+        Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+        ```
+        <section data-markdown>
+          ## Markdown support
+
+          Write content using inline or external Markdown.
+          Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+        </section>
+        ```
+      </script>
+    </section>
+
+    <section>
+      <section id="fragments">
+        <h2>Fragments</h2>
+        <p>Hit the next arrow...</p>
+        <p class="fragment">... to step through ...</p>
+        <p>
+          <span class="fragment">... a</span>
+          <span class="fragment">fragmented</span>
+          <span class="fragment">slide.</span>
+        </p>
+
+        <aside class="notes">
+          This slide has fragments which are also stepped through in the notes window.
+        </aside>
+      </section>
+      <section>
+        <h2>Fragment Styles</h2>
+        <p>There's different types of fragments, like:</p>
+        <p class="fragment grow">grow</p>
+        <p class="fragment shrink">shrink</p>
+        <p class="fragment fade-out">fade-out</p>
+        <p class="fragment current-visible">current-visible</p>
+        <p class="fragment highlight-red">highlight-red</p>
+        <p class="fragment highlight-blue">highlight-blue</p>
+      </section>
+    </section>
+
+    <section id="transitions">
+      <h2>Transition Styles</h2>
+      <p>
+        You can select from different transitions, like:
+        <br>
+        <a href="?transition=none#/transitions">None</a>
+        -
+        <a href="?transition=fade#/transitions">Fade</a>
+        -
+        <a href="?transition=slide#/transitions">Slide</a>
+        -
+        <a href="?transition=convex#/transitions">Convex</a>
+        -
+        <a href="?transition=concave#/transitions">Concave</a>
+        -
+        <a href="?transition=zoom#/transitions">Zoom</a>
+      </p>
+    </section>
+
+    <section id="themes">
+      <h2>Themes</h2>
+      <p>
+        reveal.js comes with a few themes built in:
+        <br>
+        <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black
+                                                                                                                (default)
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple
+        </a>
+        <br>
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon
+        </a>
+        -
+        <a href="#"
+           onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">
+          Solarized
+        </a>
+      </p>
+    </section>
+
+    <section>
+      <section data-background="#dddddd">
+        <h2>Slide Backgrounds</h2>
+        <p>
+          Set
+          <code>data-background="#dddddd"</code>
+          on a slide to change the background color. All CSS color formats are supported.
+        </p>
+        <a href="#"
+           class="navigate-down">
+          <img width="178"
+               height="238"
+               data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"
+               alt="Down arrow">
+        </a>
+      </section>
+      <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+        <h2>Image Backgrounds</h2>
+        <pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+      </section>
+      <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png"
+               data-background-repeat="repeat"
+               data-background-size="100px">
+        <h2>Tiled Backgrounds</h2>
+        <pre><code class="hljs"
+                   style="word-wrap: break-word;">&lt;section data-background="image.png"
+                                                  data-background-repeat="repeat"
+                                                  data-background-size="100px"&gt;</code></pre>
+      </section>
+      <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
+               data-background-color="#000000">
+        <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+          <h2>Video Backgrounds</h2>
+          <pre><code class="hljs"
+                     style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+        </div>
+      </section>
+      <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+        <h2>... and GIFs!</h2>
+      </section>
+    </section>
+
+    <section data-transition="slide"
+             data-background="#4d7e65"
+             data-background-transition="zoom">
+      <h2>Background Transitions</h2>
+      <p>
+        Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+      </p>
+      <pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+    </section>
+
+    <section data-transition="slide"
+             data-background="#b5533c"
+             data-background-transition="zoom">
+      <h2>Background Transitions</h2>
+      <p>
+        You can override background transitions per-slide.
+      </p>
+      <pre><code class="hljs"
+                 style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>Pretty Code</h2>
+					<pre><code class="hljs"
+                     data-trim
+                     contenteditable>
+            function linkify( selector ) {
+            if( supports3DTransforms ) {
+
+            var nodes = document.querySelectorAll( selector );
+
+            for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+            var node = nodes[i];
+
+            if( !node.className ) {
+            node.className += ' roll';
+            }
+            }
+            }
+            }
+          </code></pre>
+      <p>Code syntax highlighting courtesy of
+        <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>
+         .
+      </p>
+    </section>
+
+    <section>
+      <h2>Marvelous List</h2>
+      <ul>
+        <li>No order here</li>
+        <li>Or here</li>
+        <li>Or here</li>
+        <li>Or here</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Fantastic Ordered List</h2>
+      <ol>
+        <li>One is smaller than...</li>
+        <li>Two is smaller than...</li>
+        <li>Three!</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Tabular Tables</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>Item</th>
+          <th>Value</th>
+          <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Apples</td>
+          <td>$1</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Lemonade</td>
+          <td>$2</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Bread</td>
+          <td>$3</td>
+          <td>2</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Clever Quotes</h2>
+      <p>
+        These guys come in two forms, inline:
+        <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+          &ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q>
+        and block:
+      </p>
+      <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+        &ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters
+               would
+               reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+      </blockquote>
+    </section>
+
+    <section>
+      <h2>Intergalactic Interconnections</h2>
+      <p>
+        You can link between slides internally,
+        <a href="#/2/3">like this</a>
+        .
+      </p>
+    </section>
+
+    <section>
+      <h2>Speaker View</h2>
+      <p>There's a
+        <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>
+         . It includes a timer, preview of the upcoming slide as well as your speaker notes.
+      </p>
+      <p>Press the
+        <em>S</em>
+         key to try it out.
+      </p>
+
+      <aside class="notes">
+        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the
+        speaker notes window (hit 's' on your keyboard).
+      </aside>
+    </section>
+
+    <section>
+      <h2>Export to PDF</h2>
+      <p>Presentations can be
+        <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>
+         , here's an example:
+      </p>
+      <iframe src="https://www.slideshare.net/slideshow/embed_code/42840540"
+              width="445"
+              height="355"
+              frameborder="0"
+              marginwidth="0"
+              marginheight="0"
+              scrolling="no"
+              style="border:3px solid #666; margin-bottom:5px; max-width: 100%;"
+              allowfullscreen></iframe>
+    </section>
+
+    <section>
+      <h2>Global State</h2>
+      <p>
+        Set
+        <code>data-state="something"</code>
+        on a slide and
+        <code>"something"</code>
+        will be added as a class to the document element when the slide is open. This lets you
+        apply broader style changes, like switching the page background.
+      </p>
+    </section>
+
+    <section data-state="customevent">
+      <h2>State Events</h2>
+      <p>
+        Additionally custom events can be triggered on a per slide basis by binding to the
+        <code>data-state</code>
+        name.
+      </p>
+					<pre><code class="javascript"
+                     data-trim
+                     contenteditable
+                     style="font-size: 18px;">
+            Reveal.addEventListener( 'customevent', function() {
+            console.log( '"customevent" has fired' );
+            } );
+          </code></pre>
+    </section>
+
+    <section>
+      <h2>Take a Moment</h2>
+      <p>
+        Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take
+        distracting slides off the screen.
+      </p>
+    </section>
+
+    <section>
+      <h2>Much more</h2>
+      <ul>
+        <li>Right-to-left support</li>
+        <li>
+          <a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a>
+        </li>
+        <li>
+          <a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a>
+        </li>
+        <li>
+          <a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a>
+        </li>
+        <li>
+          <a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a>
+        </li>
+      </ul>
+    </section>
+
+    <section style="text-align: left;">
+      <h1>THE END</h1>
+      <p>
+        -
+        <a href="http://slides.com">Try the online editor</a>
+        <br>
+        -
+        <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+      </p>
+    </section>
+
+  </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      {
+        src: 'lib/js/classList.js', condition: function ()
+      {
+        return !document.body.classList;
+      }
+      },
+      {
+        src: 'plugin/markdown/marked.js', condition: function ()
+      {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/markdown/markdown.js', condition: function ()
+      {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/highlight/highlight.js', async: true, callback: function ()
+      {
+        hljs.initHighlightingOnLoad();
+      }
+      },
+      {src: 'plugin/zoom-js/zoom.js', async: true},
+      {src: 'plugin/notes/notes.js', async: true}
+    ]
+  });
+
+</script>
+
+</body>
+</html>
